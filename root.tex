@@ -1,0 +1,44 @@
+%texcount command included!
+\documentclass{ietperso}
+
+\usepackage{lipsum}
+
+%TC:envir table [] ignore
+%TC:envir figure [] ignore
+\begin{document}
+\title{Paper title}
+\author[1,*]{Surname 1 name 1}
+\author[2]{Surname 2 Name 2}
+\author[3]{Surname 3 Name 3}
+\affil[1]{Lab 1, address 1, city 1, country 1}
+\affil[2]{Lab 1, address 1, city 1, country 1}
+\affil[3]{Lab 1, address 1, city 1, country 1}
+\affil[*]{\url{corresponding.author@lab.smthg}}
+
+\maketitle
+
+%============================================ ABSTRACT ============================================%
+%TC:break abstract
+\begin{ietabstract}
+Text of abstract.
+\end{ietabstract}
+
+%============================================== BODY ==============================================%
+\begin{ietbody}
+\section{Section 1}
+\lipsum[1-4]
+
+\section{Section 2}
+\lipsum[5-7]
+
+%=========================================== BIBLIOGRAPHY =========================================%
+\bibliographystyle{ietperso}
+\bibliography{bibfile}
+
+%============================================ TEXCOUNT ============================================%
+%TC:ignore
+\immediate\write18{texcount \jobname.tex -inc -incbib -sum -html -out=\jobname.html}
+%TC:endignore
+
+\end{ietbody}
+\end{document}
