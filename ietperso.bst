@@ -2,7 +2,18 @@
 %% This is file `ietperso.bst',
 %% generated with the docstrip utility.
 %%
-%% Manually edited by Emmanuel Chambon 2015/07/29
+%% Manually edited by E. Chambon 2015/07/29
+%%
+%% --------------------------------------------------------------
+%%
+%% This is an unofficial BibTex template for submitting articles to 
+%% IET Control Theory and Applications. Please refer to the official 
+%% author manual for original presentation rules. We decline any 
+%% responsibility in paper rejections due to template reasons.
+%%
+%% Use at your own risks!
+%%
+%% --------------------------------------------------------------
 %%
 %% The original source files were:
 %%
@@ -452,7 +463,7 @@ FUNCTION {format.url}
   url
   duplicate$ empty$
     { pop$ "" }
-    { "\urlprefix\url{" swap$ * "}" * }
+    { "\url{" swap$ * "}" * } %\urlprefix
   if$
 }
 
@@ -1200,7 +1211,8 @@ FUNCTION {format.porg.or.pub}
             'skip$
             { ", " swap$ * * }
           if$
-          ", " year "year" bibinfo.check
+          ", "
+		  year "year" bibinfo.check
           *
         }
       if$

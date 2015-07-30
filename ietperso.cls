@@ -1,6 +1,28 @@
-\NeedsTeXFormat{LaTeX2e}
+%%
+%% This is file `ietperso.cls',
+%% written and edited by E. Chambon.
+%%
+%% --------------------------------------------------------------
+%%
+%% This is an unofficial LaTeX template for submitting articles to 
+%% IET Control Theory and Applications. Please refer to the official 
+%% author manual for original presentation rules. We decline any 
+%% responsibility in paper rejections due to template reasons.
+%%
+%% Use at your own risks!
+%%
+%% --------------------------------------------------------------
+%% 
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
 
-\ProvidesPackage{ietperso}[2015/07/29 IET Control Theory and Applications Journal - non official template, V1.0]
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ietperso}[2015/07/29 IET Control Theory and Applications Journal - unofficial template, V1.0]
 \LoadClass[a4paper, 11pt]{article}
 
 %% PACKAGES
@@ -12,12 +34,13 @@
 \RequirePackage{hyperref}
 \RequirePackage{helvet}
 \RequirePackage{setspace}
-\RequirePackage{titlesec}
+\RequirePackage[explicit]{titlesec}
 \RequirePackage{fancyhdr}
 \RequirePackage{amssymb}
 \RequirePackage{amsthm}
 \RequirePackage{amsmath}
 \RequirePackage[font={small,it}]{caption} % caption size (small = 10pt when using 11pt) and decoration
+\RequirePackage{pstool}
 
 %% PAGE STYLE
 \pagestyle{fancy}
@@ -59,7 +82,7 @@
 
 %% Titles
 % maketitle
-\pretitle{\begin{center}\fontfamily{phv}\LARGE\bfseries}
+\pretitle{\begin{center}\fontfamily{phv}\Large\bfseries}
 \posttitle{\par\end{center}\vskip 0.5em}
 \preauthor{\begin{center}
 			\large \lineskip 0.5em%
@@ -69,7 +92,11 @@
 \postdate{\par\end{center}}
 
 % sections
-\titleformat{\section}[block]{\fontfamily{phv}\bfseries\Large}{\thesection.}{0.5em}{} %\normalfont
-\titleformat{\subsection}[block]{\fontfamily{phv}\bfseries\large}{\thesubsection.}{0.5em}{} %\normalfont
-\titleformat{\subsubsection}[block]{\fontfamily{phv}\bfseries\normalsize}{\thesubsubsection.}{0.5em}{} %\normalfont
-\titleformat{\paragraph}[runin]{\fontfamily{phv}\bfseries\small}{}{0.5em}{} %\normalfont
+\titleformat{\section}[block]{\fontfamily{phv}\bfseries\Large}{\thesection.}{0.5em}{#1}
+\titleformat{\subsection}[block]{\fontfamily{phv}\itshape\large}{\thesubsection.}{0.5em}{#1}
+\titleformat{\subsubsection}[runin]{\fontfamily{phv}\itshape\normalsize}{\thesubsubsection.}{0.5em}{#1:}
+\titleformat{\paragraph}[runin]{\bfseries\normalsize}{\theparagraph.}{0.5em}{#1}
+
+%% Captions setup
+\captionsetup[table]{labelfont={bf,up},textfont=up,labelsep=space,position=top,justification=justified,singlelinecheck=false}
+\captionsetup[figure]{labelfont={bf,it},textfont=it,labelsep=period,position=bottom,justification=justified,singlelinecheck=false,name={Fig.}}
